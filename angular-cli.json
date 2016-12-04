@@ -8,6 +8,7 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
+        "tp",
         "assets",
         "favicon.ico"
       ],
@@ -18,9 +19,15 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.sass"
+        "tp/bootstrap/css/bootstrap-lumen.css",
+        "styles.css",
+        "../node_modules/font-awesome/css/font-awesome.min.css",
+        "../node_modules/animate.css/animate.min.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
+        "tp/bootstrap/js/bootstrap.min.js"
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
@@ -41,7 +48,7 @@
     }
   },
   "defaults": {
-    "styleExt": "sass",
+    "styleExt": "css",
     "prefixInterfaces": false,
     "inline": {
       "style": false,

@@ -1,0 +1,28 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" [routerLink]="['/']">Calorify</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="nav-collapse">
+
+      <!-- Not logged in -->
+      <ul class="nav navbar-nav navbar-right" *ngIf="!auth.user()">
+        <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
+      </ul>
+
+      <!-- Logged in -->
+      <ul class="nav navbar-nav navbar-right" *ngIf="auth.user()">
+        <li><a routerLink="/profile" routerLinkActive="active">Profile</a></li>
+        <li><a (click)="alert('soon')">Logout</a></li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
