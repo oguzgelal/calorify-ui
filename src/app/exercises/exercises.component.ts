@@ -20,6 +20,7 @@ export class ExercisesComponent implements OnInit {
     weight: '',
     speed: '',
     incline: '',
+    calories: '',
     desc: ''
   };
 
@@ -56,46 +57,17 @@ export class ExercisesComponent implements OnInit {
     ];
 
     this.routines = [
-      {
-        name: 'Apple Pie',
-        image: 'http://images-gmi-pmc.edge-generalmills.com/36452ba2-648c-4c67-90f7-3a1fc36cf6f4.jpg'
-      },
-      {
-        name: 'Carrot Cake',
-        image: 'http://exercisenetwork.sndimg.com/content/dam/images/exercise/fullset/2007/2/16/0/ry0401_carrotcake.jpg'
-      },
-      {
-        name: 'Pizza Margherita',
-        image: 'https://s-media-cache-ak0.pinimg.com/originals/a2/59/e0/a259e0bfe5dfcd037af0a1d22214f1a6.jpg'
-      },
-      {
-        name: 'Bolognese Sauce',
-        image: 'http://i1.wp.com/exercisenouveau.com/wp-content/uploads/2010/09/IMG_6030.jpg?resize=535%2C378'
-      },
-      {
-        name: 'Homemade Red Wine',
-        image: 'https://usercontent2.hubstatic.com/11950237_f520.jpg'
-      },
-      {
-        name: 'White Russian Cocktail',
-        image: 'http://www.kahlua.com/globalassets/classic-cocktails/white-russian/kahlua-white-russian-highlighted.png/CocktailHighlight'
-      },
-      {
-        name: 'Spinach Salad',
-        image: 'http://images.media-allroutines.com/userphotos/250x250/00/47/84/478482.jpg'
-      },
-      {
-        name: 'Apple Pie',
-        image: 'http://images-gmi-pmc.edge-generalmills.com/36452ba2-648c-4c67-90f7-3a1fc36cf6f4.jpg'
-      },
-      {
-        name: 'Carrot Cake',
-        image: 'http://exercisenetwork.sndimg.com/content/dam/images/exercise/fullset/2007/2/16/0/ry0401_carrotcake.jpg'
-      },
-      {
-        name: 'Pizza Margherita',
-        image: 'https://s-media-cache-ak0.pinimg.com/originals/a2/59/e0/a259e0bfe5dfcd037af0a1d22214f1a6.jpg'
-      }
+      { name: 'P90X Workout' },
+      { name: 'LiveFit' },
+      { name: 'Shortcut To Size' },
+      { name: 'Kris Gethin - 12 Week Trainer' },
+      { name: 'Labrada Lean Body' },
+      { name: 'Shortcut To Shred' },
+      { name: 'Big Man On Campus' },
+      { name: 'Arnold Schwarzenegger\'s Blueprint' },
+      { name: 'Living Large' },
+      { name: 'Get Swole' },
+      { name: 'Rewired' }
     ];
 
     this.friends = [
@@ -148,12 +120,16 @@ export class ExercisesComponent implements OnInit {
   addExercise() {
     sweetAlert("Exercise saved!", "Now you can use this exercise within your account.", "success");
     this.addedExercise = {
-      name: '',
-      image: '',
-      portionSize: '',
-      portionType: '',
-      calories: ''
-    };
+    name: '',
+    reps: '',
+    sets: '',
+    mins: '',
+    weight: '',
+    speed: '',
+    incline: '',
+    calories: '',
+    desc: ''
+  };
   }
 
 
