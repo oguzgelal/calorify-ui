@@ -1,5 +1,5 @@
 .avatar {
-  width: 96px;
+  width: 100px;
   height: auto;
 }
 
@@ -26,6 +26,7 @@ i {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-left: 4px;
 }
 
 .list-icon {
@@ -39,4 +40,18 @@ i {
   -webkit-transform: scaleX(-1);
   -ms-transform: scaleX(-1);
   transform: scaleX(-1);
+}
+
+
+.list-panel .panel-body {
+  padding: 0 !important;
+}
+.list-group {
+  margin-bottom: 0 !important;
+}
+
+.activity-list .list-group-item {
+  border-radius: 0 !important;
+  border-left: none !important;
+  border-right: none !important;
 }

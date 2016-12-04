@@ -32,4 +32,8 @@ export class ProfileComponent implements OnInit {
     sweetAlert("Success!", "You settings saved successfully.", "success")
   }
 
+  cancel(){
+    this.router.navigate(['/']);
+  }
+
 }

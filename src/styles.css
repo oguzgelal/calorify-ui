@@ -1,4 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 body{ background-color: rgb(249,250,251); }
+a { color: inherit !important; }
 a:hover { cursor: pointer !important; }
 .row.mg { margin-top: 30px; }
+
+img {
+  border-radius: 8px;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+  border: 1px solid #e7e7e7;
+  border-width: 0 0px 4px 0px;
+}
