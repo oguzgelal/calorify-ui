@@ -1,0 +1,235 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <ul class="nav nav-tabs" style="margin-top: 20px;">
+        <li class="{{ isTabActive('foods') ? 'active' : '' }}"><a href="#foods" data-toggle="tab">Foods</a></li>
+        <li class="{{ isTabActive('recipes') ? 'active' : '' }}"><a href="#recipes" data-toggle="tab">Recipes</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane fade {{ isTabActive('foods') ? 'in active' : '' }}" id="foods">
+          <div class="row">
+            <!-- Add Food -->
+            <div class="col-sm-6 col-xs-12">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Add Food</h3>
+                </div>
+                <div class="panel-body">
+                  <form (submit)="addFood()">
+                    <div class="form-group">
+                      <label for="foodName">Name</label>
+                      <input type="text" class="form-control" id="foodName" name="foodName" [(ngModel)]="addedFood.name" placeholder="ie. Apple">
+                    </div>
+                    <div class="form-group">
+                      <label for="foodImage">Image</label>
+                      <input type="file" class="form-control" id="foodImage" name="foodImage" [(ngModel)]="addedFood.image">
+                    </div>
+                    <div class="form-group">
+                      <label for="size">Portion Size</label>
+                      <input type="number" class="form-control" id="size" name="portionSize" [(ngModel)]="addedFood.portionSize" placeholder="ie. 100">
+                      <p class="help-block">Define the quantity of the serving (ie. <b>100</b> <i>grams</i>, <b>1</b> <i>bottle</i>)</p>
+                    </div>
+                    <div class="form-group">
+                      <label for="portionType">Portion Type</label>
+                      <input type="text" class="form-control" id="portionType" name="portionType" [(ngModel)]="addedFood.portionType" placeholder="ie. grams">
+                      <p class="help-block">Define a serving (ie. grams, liters, bottle, cup, package etc.)</p>
+                    </div>
+                    <div class="form-group">
+                      <label for="calories">Calories</label>
+                      <input type="number" class="form-control" id="calories" name="calories" [(ngModel)]="addedFood.calories" placeholder="ie. 350">
+                      <p class="help-block">Calories the specified portion contains.</p>
+                    </div>
+                    <button type="submit" class="btn btn-success pull-right">Add Food</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- Food List -->
+            <div class="col-sm-6 col-xs-12">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Saved Foods</h3>
+                </div>
+                <div class="panel-body foods-list-cont">
+                  <ul class="list-group foods-list">
+                    <li class="list-group-item" *ngFor="let fo of foods; let i = index;">
+                      <span class="pull-left">
+                        <img class="thumb" src="{{ fo.image }}">
+                      </span>
+                      <span class="pull-right">
+                        <button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#shareModal">Share</button>
+                        <button class="btn btn-xs btn-danger">Delete</button>
+                      </span>
+                      <span>{{ fo.name }}</span>
+                    </li>
+                    <li class="list-group-item text-center" style="padding: 0; height: 38px;">
+                      <button style="width: 97%;" class="btn btn-xs btn-default">Load More</button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade {{ isTabActive('recipes') ? 'in active' : '' }}" id="recipes">
+          <div class="row">
+            <!-- Add Recipe -->
+            <div class="col-sm-6 col-xs-12">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Add Recipe</h3>
+                </div>
+                <div class="panel-body">
+                  <form (submit)="addRecipe()">
+                    <div class="form-group">
+                      <label for="recipeName">Name</label>
+                      <input type="text" class="form-control" id="recipeName" name="recipeName" [(ngModel)]="addedRecipe.name" placeholder="ie. Apple Pie">
+                    </div>
+                    <div class="form-group">
+                      <label for="recipeImage">Image</label>
+                      <input type="file" class="form-control" id="recipeImage" name="recipeImage" [(ngModel)]="addedRecipe.image">
+                    </div>
+                    <div class="form-group">
+                      <label for="recipeIngredients">Ingredients</label>
+                      <ul class="list-group ingredient-list">
+                        <li class="list-group-item">
+                          <span class="badge">200 grams</span>
+                          <span class="pull-left">
+                            <a><i class="fa fa-trash-o trash"></i></a>
+                          </span>
+                          Tomato
+                        </li>
+                        <li class="list-group-item">
+                          <span class="badge">5</span>
+                          <span class="pull-left">
+                            <a><i class="fa fa-trash-o trash"></i></a>
+                          </span>
+                          Eggs
+                        </li>
+                        <li class="list-group-item">
+                          <span class="badge">1 spoon</span>
+                          <span class="pull-left">
+                            <a><i class="fa fa-trash-o trash"></i></a>
+                          </span>
+                          Olive Oil
+                        </li>
+                        <a class="list-group-item" data-toggle="modal" data-target="#ingredientModal">
+                          <span class="pull-right">
+                            <i class="fa fa-plus-square-o"></i>
+                          </span>
+                          Add Ingredient
+                        </a>
+                      </ul>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="recipeDesc">Description</label>
+                      <textarea name="recipeDesc" id="recipeDesc" [(ngModel)]="addedRecipe.desc" class="form-control" rows="3" placeholder="Description of how to prepare the recipe."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success pull-right">Add Recipe</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- Recipe List -->
+            <div class="col-sm-6 col-xs-12">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Saved Recipes</h3>
+                </div>
+                <div class="panel-body foods-list-cont">
+                  <ul class="list-group foods-list">
+                    <li class="list-group-item" *ngFor="let fo of recipes; let i = index;">
+                      <span class="pull-left">
+                        <img class="thumb" src="{{ fo.image }}">
+                      </span>
+                      <span class="pull-right">
+                        <button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#shareModal">Share</button>
+                        <button class="btn btn-xs btn-danger">Delete</button>
+                      </span>
+                      <span>{{ fo.name }}</span>
+                    </li>
+                    <li class="list-group-item text-center" style="padding: 0; height: 38px;">
+                      <button style="width: 97%;" class="btn btn-xs btn-default">Load More</button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="shareModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Share</h4>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group foods-list">
+          <li class="list-group-item" *ngFor="let fr of friends; let i = index;">
+            <span class="pull-left"><img class="thumb" src="{{ fr.avatar }}"></span>
+            <span class="pull-right"><button class="btn btn-xs btn-primary" data-dismiss="modal" (click)="shared()">Share</button></span>
+            <span>{{ fr.name }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ingredientModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Step 1: Add Food</h4>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group foods-list">
+          <li class="list-group-item" *ngFor="let fo of foods; let i = index;">
+            <span class="pull-left"><img class="thumb" src="{{ fo.image }}"></span>
+            <span class="pull-right"><button class="btn btn-xs btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#ingredientQuantityModal">Add</button></span>
+            <span>{{ fo.name }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ingredientQuantityModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Step 2: Enter Quantity</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="size">Quantity Size</label>
+            <input type="number" class="form-control" id="size" name="portionSize" placeholder="ie. 100">
+            <p class="help-block">Define the quantity (ie. <b>100</b> <i>grams</i>, <b>1</b> <i>bottle</i>)</p>
+          </div>
+          <div class="form-group">
+            <label for="portionType">Quantity Type</label>
+            <input type="text" class="form-control" id="portionType" name="portionType" placeholder="ie. grams">
+            <p class="help-block">Define the quantity type (ie. grams, liters, bottle, cup, package etc.)</p>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Add Ingredient</button>
+      </div>
+    </div>
+  </div>
+</div>

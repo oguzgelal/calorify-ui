@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row mg">
+
+    <div class="col-md-6 col-md-offset-3 col-sm-12" *ngIf="suggestedFriends.length == 0 && friendRequests.length == 0">
+      <div class="well text-center">Nothing to show!</div>
+    </div>
+
+      <!-- suggested friends -->
+      <div class="col-md-6 col-md-offset-3 col-sm-12" *ngIf="suggestedFriends.length > 0">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Suggested Friends</h3>
+          </div>
+          <div class="panel-body friends-list-cont">
+            <ul class="list-group friends-list">
+              <li class="list-group-item" *ngFor="let fr of suggestedFriends; let i = index;">
+                <span class="pull-left">
+                  <img class="thumb" src="{{ fr.avatar }}">
+                </span>
+                <span class="pull-right">
+                  <button class="btn btn-xs btn-primary" (click)="addSuggestedFriend(fr, i)">
+                    Add Friend
+                  </button>
+                </span>
+                <span>{{ fr.name }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- incoming requests -->
+      <div class="col-md-6 col-md-offset-3 col-sm-12" *ngIf="friendRequests.length > 0">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Friend Requests</h3>
+          </div>
+          <div class="panel-body friends-list-cont">
+            <ul class="list-group friends-list">
+              <li class="list-group-item" *ngFor="let fr of friendRequests; let i = index;">
+                <span class="pull-left">
+                  <img class="thumb" src="{{ fr.avatar }}">
+                </span>
+                <span class="pull-right">
+                  <button class="btn btn-xs btn-success" (click)="friendAccept(fr, i)">Accept</button>
+                  <button class="btn btn-xs btn-danger" (click)="friendIgnore(fr, i)">Ignore</button>
+                </span>
+                <span>{{ fr.name }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+  </div>
+</div>

@@ -1,0 +1,20 @@
+.friends-list-cont {
+  padding: 0 !important;
+}
+.friends-list {
+  margin-bottom: 0 !important;
+}
+
+.friends-list .list-group-item {
+  height: 60px;
+  line-height: 35px;
+  vertical-align: middle;
+  font-size: 16px;
+}
+
+.thumb {
+  width: 40px;
+  height: auto;
+  border-radius: 50%;
+  margin-right: 20px;
+}

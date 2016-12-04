@@ -12,6 +12,9 @@ import { HomeComponent } from './home/home.component';
 import { AuthService } from './services/auth/auth.service';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { FriendsComponent } from './friends/friends.component';
+import { FoodsComponent } from './foods/foods.component';
+import { ExercisesComponent } from './exercises/exercises.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { ProfileComponent } from './profile/profile.component';
     HeaderComponent,
     HomeComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    FriendsComponent,
+    FoodsComponent,
+    ExercisesComponent
   ],
   imports: [
     BrowserModule,

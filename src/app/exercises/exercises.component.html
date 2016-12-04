@@ -1,0 +1,263 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <ul class="nav nav-tabs" style="margin-top: 20px;">
+        <li class="{{ isTabActive('exercises') ? 'active' : '' }}"><a href="#exercises" data-toggle="tab">Exercises</a></li>
+        <li class="{{ isTabActive('routines') ? 'active' : '' }}"><a href="#routines" data-toggle="tab">Routines</a></li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane fade {{ isTabActive('exercises') ? 'in active' : '' }}" id="exercises">
+          <div class="row">
+            <!-- Add Exercise -->
+            <div class="col-sm-6 col-xs-12">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Add Exercise</h3>
+                </div>
+                <div class="panel-body">
+                  <form (submit)="addExercise()">
+                    <div class="form-group">
+                      <label for="exerciseName">Name</label>
+                      <input type="text" class="form-control" id="exerciseName" name="exerciseName" [(ngModel)]="addedExercise.name" placeholder="ie. Apple">
+                    </div>
+                    <div class="form-group">
+                      <label for="size">Muscles Trained</label>
+                      <select multiple="" class="form-control">
+                        <option>Cardio</option>
+                        <option>Abs</option>
+                        <option>Back</option>
+                        <option>Biceps</option>
+                        <option>Calf</option>
+                        <option>Chest</option>
+                        <option>Forearms</option>
+                        <option>Legs</option>
+                        <option>Shoulders</option>
+                        <option>Triceps</option>
+                      </select>
+                      <p class="help-block">You can select multiple items.</p>
+                    </div>
+                    <div class="form-group">
+                      <label for="calories">Repetitions</label>
+                      <input type="number" class="form-control" id="reps" name="reps" [(ngModel)]="addedExercise.reps" placeholder="ie. 15">
+                      <p class="help-block">Leave empty if not applicable.</p>
+                    </div>
+                    <div class="form-group">
+                      <label for="calories">Sets</label>
+                      <input type="number" class="form-control" id="sets" name="sets" [(ngModel)]="addedExercise.sets" placeholder="ie. 3">
+                      <p class="help-block">Leave empty if not applicable.</p>
+                    </div>
+                    <div class="form-group">
+                      <label for="calories">Weight (kg)</label>
+                      <input type="number" class="form-control" id="weight" name="weight" [(ngModel)]="addedExercise.weight" placeholder="ie. 11">
+                      <p class="help-block">Leave empty if not applicable.</p>
+                    </div>
+                    <div class="form-group">
+                      <label for="calories">Speed (km/h)</label>
+                      <input type="number" class="form-control" id="speed" name="speed" [(ngModel)]="addedExercise.speed" placeholder="ie. 3">
+                      <p class="help-block">Leave empty if not applicable.</p>
+                    </div>
+                    <div class="form-group">
+                      <label for="calories">Inclination</label>
+                      <input type="number" class="form-control" id="incline" name="incline" [(ngModel)]="addedExercise.incline" placeholder="ie. 30">
+                      <p class="help-block">Leave empty if not applicable.</p>
+                    </div>
+                    <div class="form-group">
+                      <label for="calories">Duration (min)</label>
+                      <input type="number" class="form-control" id="mins" name="mins" [(ngModel)]="addedExercise.mins" placeholder="ie. 15">
+                      <p class="help-block">Leave empty if not applicable.</p>
+                    </div>
+                    <div class="form-group">
+                      <label for="routineDesc">Description</label>
+                      <textarea name="routineDesc" id="routineDesc" [(ngModel)]="addedExercise.desc" class="form-control" rows="3" placeholder="Description of how to prepare the routine."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success pull-right">Add Exercise</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- Exercise List -->
+            <div class="col-sm-6 col-xs-12">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Saved Exercises</h3>
+                </div>
+                <div class="panel-body exercises-list-cont">
+                  <ul class="list-group exercises-list">
+                    <li class="list-group-item" *ngFor="let fo of exercises; let i = index;">
+                      <span class="pull-right">
+                        <button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#shareModal">Share</button>
+                        <button class="btn btn-xs btn-danger">Delete</button>
+                      </span>
+                      <span>{{ fo.name }}</span>
+                    </li>
+                    <li class="list-group-item text-center" style="padding: 0; height: 38px;">
+                      <button style="width: 97%;" class="btn btn-xs btn-default">Load More</button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade {{ isTabActive('routines') ? 'in active' : '' }}" id="routines">
+          <div class="row">
+            <!-- Add Exercise Routine -->
+            <div class="col-sm-6 col-xs-12">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Add Exercise Routine</h3>
+                </div>
+                <div class="panel-body">
+                  <form (submit)="addRoutine()">
+                    <div class="form-group">
+                      <label for="routineName">Name</label>
+                      <input type="text" class="form-control" id="routineName" name="routineName" [(ngModel)]="addedRoutine.name" placeholder="ie. Apple Pie">
+                    </div>
+                    <div class="form-group">
+                      <label for="routineImage">Image</label>
+                      <input type="file" class="form-control" id="routineImage" name="routineImage" [(ngModel)]="addedRoutine.image">
+                    </div>
+                    <div class="form-group">
+                      <label for="routineIngredients">Ingredients</label>
+                      <ul class="list-group ingredient-list">
+                        <li class="list-group-item">
+                          <span class="badge">200 grams</span>
+                          <span class="pull-left">
+                            <a><i class="fa fa-trash-o trash"></i></a>
+                          </span>
+                          Tomato
+                        </li>
+                        <li class="list-group-item">
+                          <span class="badge">5</span>
+                          <span class="pull-left">
+                            <a><i class="fa fa-trash-o trash"></i></a>
+                          </span>
+                          Eggs
+                        </li>
+                        <li class="list-group-item">
+                          <span class="badge">1 spoon</span>
+                          <span class="pull-left">
+                            <a><i class="fa fa-trash-o trash"></i></a>
+                          </span>
+                          Olive Oil
+                        </li>
+                        <a class="list-group-item" data-toggle="modal" data-target="#ingredientModal">
+                          <span class="pull-right">
+                            <i class="fa fa-plus-square-o"></i>
+                          </span>
+                          Add Ingredient
+                        </a>
+                      </ul>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="routineDesc">Description</label>
+                      <textarea name="routineDesc" id="routineDesc" [(ngModel)]="addedRoutine.desc" class="form-control" rows="3" placeholder="Description of how to prepare the routine."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success pull-right">Add Routine</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- Routine List -->
+            <div class="col-sm-6 col-xs-12">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Saved Exercise Routines</h3>
+                </div>
+                <div class="panel-body exercises-list-cont">
+                  <ul class="list-group exercises-list">
+                    <li class="list-group-item" *ngFor="let fo of routines; let i = index;">
+                      <span class="pull-left">
+                        <img class="thumb" src="{{ fo.image }}">
+                      </span>
+                      <span class="pull-right">
+                        <button class="btn btn-xs btn-primary" data-toggle="modal" data-target="#shareModal">Share</button>
+                        <button class="btn btn-xs btn-danger">Delete</button>
+                      </span>
+                      <span>{{ fo.name }}</span>
+                    </li>
+                    <li class="list-group-item text-center" style="padding: 0; height: 38px;">
+                      <button style="width: 97%;" class="btn btn-xs btn-default">Load More</button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="shareModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Share</h4>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group exercises-list">
+          <li class="list-group-item" *ngFor="let fr of friends; let i = index;">
+            <span class="pull-left"><img class="thumb" src="{{ fr.avatar }}"></span>
+            <span class="pull-right"><button class="btn btn-xs btn-primary" data-dismiss="modal" (click)="shared()">Share</button></span>
+            <span>{{ fr.name }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ingredientModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Step 1: Add Exercise</h4>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group exercises-list">
+          <li class="list-group-item" *ngFor="let fo of exercises; let i = index;">
+            <span class="pull-left"><img class="thumb" src="{{ fo.image }}"></span>
+            <span class="pull-right"><button class="btn btn-xs btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#ingredientQuantityModal">Add</button></span>
+            <span>{{ fo.name }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ingredientQuantityModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Step 2: Enter Quantity</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="size">Quantity Size</label>
+            <input type="number" class="form-control" id="size" name="portionSize" placeholder="ie. 100">
+            <p class="help-block">Define the quantity (ie. <b>100</b> <i>grams</i>, <b>1</b> <i>bottle</i>)</p>
+          </div>
+          <div class="form-group">
+            <label for="portionType">Quantity Type</label>
+            <input type="text" class="form-control" id="portionType" name="portionType" placeholder="ie. grams">
+            <p class="help-block">Define the quantity type (ie. grams, liters, bottle, cup, package etc.)</p>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Add Ingredient</button>
+      </div>
+    </div>
+  </div>
+</div>

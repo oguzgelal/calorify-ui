@@ -49,9 +49,3 @@ i {
 .list-group {
   margin-bottom: 0 !important;
 }
-
-.activity-list .list-group-item {
-  border-radius: 0 !important;
-  border-left: none !important;
-  border-right: none !important;
-}

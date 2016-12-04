@@ -9,7 +9,7 @@
             <div class="col-md-6 col-sm-12">
               <div class="media">
                 <div class="media-left">
-                  <img class="media-object avatar" src="{{ user.avatar }}" alt="{{ user.name }}">
+                  <img class="media-object border avatar" src="{{ user.avatar }}" alt="{{ user.name }}">
                 </div>
                 <div class="media-body">
                   <h2 class="media-heading truncate">{{ user.name }}</h2>
@@ -21,8 +21,8 @@
             </div>
             <div class="col-md-6 col-sm-12">
               <div class="list-group avatar-actions">
-                <a href="#" routerLink="/profile" class="list-group-item"><i class="fa fa-plus-square-o list-icon" aria-hidden="true"></i> Add User Data</a>
-                <a href="#" routerLink="/profile" class="list-group-item"><i class="fa fa-pencil-square-o list-icon" aria-hidden="true"></i> Update User Data</a>
+                <a routerLink="/profile" class="list-group-item"><i class="fa fa-plus-square-o list-icon" aria-hidden="true"></i> Add User Data</a>
+                <a routerLink="/profile" class="list-group-item"><i class="fa fa-pencil-square-o list-icon" aria-hidden="true"></i> Update User Data</a>
               </div>
             </div>
           </div>
@@ -30,19 +30,13 @@
       </div>
     </div>
     <div class="col-md-6 col-md-offset-3 col-sm-12">
-      <div class="panel panel-info list-panel">
-        <div class="panel-heading">
-          <h3 class="panel-title">Activities</h3>
-        </div>
-        <div class="panel-body">
-          <div class="list-group activity-list">
-            <a href="#" class="list-group-item"><i class="fa fa-users list-icon" aria-hidden="true"></i> Add Friend</a>
-            <a href="#" class="list-group-item"><i class="fa fa-cutlery list-icon" aria-hidden="true"></i> Add Food</a>
-            <a href="#" class="list-group-item"><i class="fa fa-book list-icon" aria-hidden="true"></i> Add Recipe</a>
-            <a href="#" class="list-group-item"><i class="fa fa-reply flip list-icon" aria-hidden="true"></i> Add Exercise</a>
-            <a href="#" class="list-group-item"><i class="fa fa-reply-all flip list-icon" aria-hidden="true"></i> Add Exercise Routine</a>
-          </div>
-        </div>
+      <div class="list-group activity-list">
+        <a routerLink="/friends" class="list-group-item"><i class="fa fa-users list-icon" aria-hidden="true"></i> Friends</a>
+        <a routerLink="/foods" class="list-group-item"><i class="fa fa-cutlery list-icon" aria-hidden="true"></i> Foods</a>
+        <a routerLink="/recipes" class="list-group-item"><i class="fa fa-book list-icon" aria-hidden="true"></i> Recipes</a>
+        <a href="#" class="list-group-item"><i class="fa fa-reply flip list-icon" aria-hidden="true"></i> Exercises</a>
+        <a href="#" class="list-group-item"><i class="fa fa-reply-all flip list-icon" aria-hidden="true"></i> Exercise Routines</a>
+        <a href="#" class="list-group-item"><i class="fa fa-comments list-icon" aria-hidden="true"></i> Conversations</a>
       </div>
     </div>
   </div>
