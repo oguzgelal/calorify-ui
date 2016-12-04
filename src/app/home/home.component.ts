@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth/auth.service';
+
+declare var sweetAlert: any;
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public user;
+
+  constructor(public auth: AuthService) {
+    this.user = auth.user();
+  }
 
   ngOnInit() {
+
   }
 
 }

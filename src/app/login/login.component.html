@@ -1,15 +1,5 @@
 <div class="container">
-  <div class="row">
-
-    <!-- Warning message -->
-    <div class="col-sm-6 col-sm-offset-3 col-xs-12 warning-message animated flipInX" *ngIf="loginError">
-      <div class="alert alert-dismissible alert-danger">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>Oh snap!</strong>
-        <span *ngIf="loginData.username=='' || loginData.password==''">Fields cannot be left empty.</span>
-        <span *ngIf="loginData.username!='' && loginData.password!=''">Invalid username and/or password.</span>
-      </div>
-    </div>
+  <div class="row mg">
 
     <!-- Login form -->
     <div class="col-sm-6 col-sm-offset-3 col-xs-12">
@@ -23,12 +13,12 @@
         <div class="form-group">
           <label for="password" class="col-sm-2 control-label">Password</label>
           <div class="col-sm-10">
-            <input type="password" [(ngModel)]="loginData.password" class="form-control" name="password" id="password" placeholder="calorify123">
+            <input type="password" [(ngModel)]="loginData.password" class="form-control" name="password" id="password" placeholder="123">
           </div>
         </div>
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Sign in</button>
+            <button type="submit" class="btn btn-default">Login</button>
           </div>
         </div>
       </form>

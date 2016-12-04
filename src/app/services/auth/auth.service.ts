@@ -5,9 +5,8 @@ export class AuthService {
 
   constructor() { }
 
-
   user() {
-    if (localStorage.getItem('user')){ return JSON.stringify(localStorage.getItem('user')); }
+    if (localStorage.getItem('user')){ return JSON.parse(localStorage.getItem('user')); }
     return null;
   }
   save(user) {
@@ -15,17 +14,19 @@ export class AuthService {
   }
 
   login(data){
-    if (data.username=='demo' && data.password=='calorify123'){
+    if (data.username=='demo' && data.password=='123'){
       this.save({
+        name: 'John Doe',
         username: 'demo',
         email: 'demo@calorify.com',
-        name: 'John Doe'
+        fb: 'johndoe',
+        avatar: 'http://lorempixel.com/500/500/people'
       });
       return true;
     }
     else{ return false; }
   }
 
-  logout() { this.save(null); }
+  logout() { localStorage.removeItem('user'); }
 
 }
