@@ -15,6 +15,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { FriendsComponent } from './friends/friends.component';
 import { FoodsComponent } from './foods/foods.component';
 import { ExercisesComponent } from './exercises/exercises.component';
+import { ConversationsComponent } from './conversations/conversations.component';
+import { QueryComponent } from './query/query.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ExercisesComponent } from './exercises/exercises.component';
     ProfileComponent,
     FriendsComponent,
     FoodsComponent,
-    ExercisesComponent
+    ExercisesComponent,
+    ConversationsComponent,
+    QueryComponent
   ],
   imports: [
     BrowserModule,

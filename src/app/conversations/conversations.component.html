@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="row mg">
+
+    <div class="col-md-6 col-md-offset-3 col-sm-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Shared With You</h3>
+        </div>
+        <div class="panel-body conversation-list-cont">
+          <div class="list-group conversation-list">
+            <a data-toggle="modal" data-target="#conversationModal" class="list-group-item" *ngFor="let c of conversations">
+              <h4 class="list-group-item-heading"><b>{{ c.topic }}</b> - {{ c.title }}</h4>
+              <p class="list-group-item-text">{{ c.message }}</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-md-offset-3 col-sm-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">You Shares</h3>
+        </div>
+        <div class="panel-body conversation-list-cont">
+          <div class="list-group conversation-list">
+            <a data-toggle="modal" data-target="#conversationModal" class="list-group-item" *ngFor="let c of conversationsShared">
+              <h4 class="list-group-item-heading"><b>{{ c.topic }}</b> - {{ c.title }}</h4>
+              <p class="list-group-item-text">{{ c.message }}</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="modal fade" id="conversationModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Conversation with <b>Barrack Obama</b> about <b>P90X Workout</b></h4>
+      </div>
+      <div class="modal-body">
+
+        <ul class="media-list">
+          <li class="media">
+            <div class="media-left"><a href="#"><img class="media-object conversation-thumb" src="http://lorempixel.com/100/100/people/2"></a></div>
+            <div class="media-body"><div class="conversation-bubble">Hello</div></div>
+          </li>
+          <li class="media">
+            <div class="media-right pull-right"><a href="#"><img class="media-object conversation-thumb" src="http://lorempixel.com/100/100/people/1"></a></div>
+            <div class="media-body" style="text-align: right;"><div class="conversation-bubble">Hi</div></div>
+          </li>
+          <li class="media">
+            <div class="media-right pull-right"><a href="#"><img class="media-object conversation-thumb" src="http://lorempixel.com/100/100/people/1"></a></div>
+            <div class="media-body" style="text-align: right;"><div class="conversation-bubble">How are you ?</div></div>
+          </li>
+          <li class="media">
+            <div class="media-left"><a href="#"><img class="media-object conversation-thumb" src="http://lorempixel.com/100/100/people/2"></a></div>
+            <div class="media-body"><div class="conversation-bubble">I'm good.</div></div>
+          </li>
+          <li class="media">
+            <div class="media-left"><a href="#"><img class="media-object conversation-thumb" src="http://lorempixel.com/100/100/people/2"></a></div>
+            <div class="media-body"><div class="conversation-bubble">You ?</div></div>
+          </li>
+          <li class="media">
+            <div class="media-right pull-right"><a href="#"><img class="media-object conversation-thumb" src="http://lorempixel.com/100/100/people/1"></a></div>
+            <div class="media-body" style="text-align: right;"><div class="conversation-bubble">Thanks.</div></div>
+          </li>
+          <li class="media">
+            <div class="media-right pull-right"><a href="#"><img class="media-object conversation-thumb" src="http://lorempixel.com/100/100/people/1"></a></div>
+            <div class="media-body" style="text-align: right;"><div class="conversation-bubble">You gotta try this workout man!</div></div>
+          </li>
+          <li class="media">
+            <div class="media-left"><a href="#"><img class="media-object conversation-thumb" src="http://lorempixel.com/100/100/people/2"></a></div>
+            <div class="media-body"><div class="conversation-bubble">Sorry dude, busy with the elections. Maybe later ?</div></div>
+          </li>
+        </ul>
+
+      </div>
+      <div class="modal-footer">
+        <input type="text" class="form-control conversation-textbox" placeholder="Type your message here...">
+        <button type="button" class="btn btn-primary">Send</button>
+      </div>
+    </div>
+  </div>
+</div>

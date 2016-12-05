@@ -7,6 +7,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { FriendsComponent } from './friends/friends.component';
 import { FoodsComponent } from './foods/foods.component';
 import { ExercisesComponent } from './exercises/exercises.component';
+import { ConversationsComponent } from './conversations/conversations.component';
+import { QueryComponent } from './query/query.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,7 +18,10 @@ const appRoutes: Routes = [
   { path: 'foods', component: FoodsComponent },
   { path: 'recipes', component: FoodsComponent },
   { path: 'exercises', component: ExercisesComponent },
-  { path: 'routines', component: ExercisesComponent }
+  { path: 'routines', component: ExercisesComponent },
+  { path: 'conversations', component: ConversationsComponent },
+  { path: 'query/food', component: QueryComponent },
+  { path: 'query/exercise', component: QueryComponent }
 ];
 
 export const appRoutingProviders: any[] = [
